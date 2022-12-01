@@ -25,7 +25,16 @@ const mocks = {
     Float: () => casual.double(0, 100),
     String: () => casual.sentence,
     Boolean: () => casual.coin_flip,
-    ID: () => casual.uuid
+    ID: () => casual.uuid,
+    Date: () => casual.date('YYYY-MM-DDTHH:mm:ss.sssZ'),
+    DateTime: () => casual.date('YYYY-MM-DDTHH:mm:ss.sssZ'),
+    Json: () => {
+        const obj = {};
+        for (let i = 0; i < casual.integer(1, 10); i++) {
+            obj[casual.word] = casual.word;
+        }
+        return obj;
+    }
 };
 
 // todo show landing page with all endpoints
